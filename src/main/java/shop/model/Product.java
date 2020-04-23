@@ -1,6 +1,7 @@
 package shop.model;
 
-public class Product {private Long id;
+public class Product {
+    private Long id;
     private String name;
     private double price;
 

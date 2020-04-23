@@ -7,7 +7,9 @@ import shop.model.Product;
 import shop.model.ShoppingCart;
 import shop.model.User;
 
-public class Storage {public static final List<Product> products = new ArrayList<>();
+
+public class Storage {
+    public static final List<Product> products = new ArrayList<>();
     public static final List<ShoppingCart> buckets = new ArrayList<>();
     public static final List<User> users = new ArrayList<>();
     public static final List<Order> orders = new ArrayList<>();
