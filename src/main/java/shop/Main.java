@@ -16,6 +16,7 @@ public class Main {
     private static Injector injector = Injector.getInstance("shop");
 
     public static void main(String[] args) {
+        //что то пошло не так , и я не могу залить изменения , єто комент для пуша , удалю до мерджа
         ProductService productService = (ProductService) injector.getInstance(ProductService.class);
         ShoppingCartService shoppingCartService = (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
         UserService userService = (UserService) injector.getInstance(UserService.class);
