@@ -10,7 +10,7 @@ import shop.model.User;
 
 public class Storage {
     public static final List<Product> products = new ArrayList<>();
-    public static final List<ShoppingCart> buckets = new ArrayList<>();
+    public static final List<ShoppingCart> shoppingCarts = new ArrayList<>();
     public static final List<User> users = new ArrayList<>();
     public static final List<Order> orders = new ArrayList<>();
 
@@ -28,7 +28,7 @@ public class Storage {
     public static void add(ShoppingCart shoppingCart) {
         shoppingCartId++;
         shoppingCart.setId(shoppingCartId);
-        buckets.add(shoppingCart);
+        shoppingCarts.add(shoppingCart);
     }
 
     public static void add(User user) {
