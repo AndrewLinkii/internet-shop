@@ -1,15 +1,12 @@
 package shop.service.impl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import shop.dao.OrderDao;
-import shop.dao.ShoppingCartDao;
 import shop.lib.Inject;
 import shop.lib.Service;
 import shop.model.Order;
 import shop.model.Product;
-import shop.model.ShoppingCart;
 import shop.model.User;
 import shop.service.OrderService;
 
@@ -18,18 +15,13 @@ public class OrderServiceImpl implements OrderService {
     @Inject
     OrderDao orderDao;
 
-    @Inject
-    ShoppingCartDao shoppingCartDao;
-
     @Override
     public Order completeOrder(List<Product> products, User user) {
         Order order = new Order(products, user);
-        Optional<ShoppingCart> bucket = shoppingCartDao.getAll().stream()
-                .filter(s -> s.getUser().getId().equals(user.getId()))
-                .findFirst();
-        bucket.get().getProducts().clear();
+        orderDao.create(order);
         return order;
     }
+
 
     @Override
     public List<Order> getUserOrders(User user) {

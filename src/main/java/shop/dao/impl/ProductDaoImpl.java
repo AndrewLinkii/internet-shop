@@ -12,7 +12,7 @@ import shop.model.Product;
 public class ProductDaoImpl implements ProductDao {
     @Override
     public Product create(Product product) {
-        if (product == null) {
+        if (product != null) {
             Storage.add(product);
         } else {
             throw new NoSuchElementException("Cant create because Product is null");
