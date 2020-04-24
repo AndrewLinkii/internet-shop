@@ -1,8 +1,8 @@
 package shop.dao;
 
-import shop.model.User;
 import java.util.List;
 import java.util.Optional;
+import shop.model.User;
 
 public interface UserDao {
     User create(User user);

@@ -1,8 +1,7 @@
 package shop.service;
 
-import shop.model.User;
-
 import java.util.List;
+import shop.model.User;
 
 public interface UserService {
     User create(User user);

@@ -7,7 +7,6 @@ import shop.lib.Service;
 import shop.model.Product;
 import shop.service.ProductService;
 
-
 @Service
 public class ProductServiceImpl implements ProductService {
     @Inject

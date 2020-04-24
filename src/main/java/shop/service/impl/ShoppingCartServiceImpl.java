@@ -8,7 +8,6 @@ import shop.model.Product;
 import shop.model.ShoppingCart;
 import shop.service.ShoppingCartService;
 
-
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Inject

@@ -5,7 +5,6 @@ import shop.model.Order;
 import shop.model.Product;
 import shop.model.User;
 
-
 public interface OrderService {
     Order completeOrder(List<Product> products, User user);
 

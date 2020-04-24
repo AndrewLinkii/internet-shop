@@ -23,9 +23,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order completeOrder(List<Product> products, User user) {
-        Order order = new Order(products,user);
+        Order order = new Order(products, user);
         Optional<ShoppingCart> bucket = shoppingCartDao.getAll().stream()
-                .filter(s ->s.getUser().getId().equals(user.getId()))
+                .filter(s -> s.getUser().getId().equals(user.getId()))
                 .findFirst();
         bucket.get().getProducts().clear();
         return order;
@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getUserOrders(User user) {
-       return orderDao.getAll().stream()
+        return orderDao.getAll().stream()
                 .filter(o -> o.getUser().getId().equals(user.getId()))
                 .collect(Collectors.toList());
     }
@@ -45,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getAll() {
-       return orderDao.getAll();
+        return orderDao.getAll();
     }
 
     @Override

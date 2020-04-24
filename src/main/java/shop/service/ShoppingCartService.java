@@ -1,9 +1,8 @@
 package shop.service;
 
+import java.util.List;
 import shop.model.Product;
 import shop.model.ShoppingCart;
-
-import java.util.List;
 
 public interface ShoppingCartService {
     ShoppingCart create(ShoppingCart shoppingCart);

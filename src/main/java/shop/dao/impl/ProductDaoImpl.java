@@ -36,12 +36,12 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public Product update(Product product) {
         int index = Storage.products.indexOf(product);
-        Storage.products.set(index,product);
+        Storage.products.set(index, product);
         return product;
     }
 
     @Override
     public boolean delete(Long id) {
-       return Storage.products.removeIf(p ->p.getId().equals(id));
+        return Storage.products.removeIf(p -> p.getId().equals(id));
     }
 }
