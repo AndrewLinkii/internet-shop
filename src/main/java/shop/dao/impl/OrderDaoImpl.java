@@ -12,7 +12,7 @@ import shop.model.Order;
 public class OrderDaoImpl implements OrderDao {
     @Override
     public Order create(Order order) {
-        if (order == null) {
+        if (order != null) {
             Storage.add(order);
         } else {
             throw new NoSuchElementException("Cant create because Order is null");
