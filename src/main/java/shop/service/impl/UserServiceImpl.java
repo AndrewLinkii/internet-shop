@@ -10,7 +10,7 @@ import shop.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
     @Inject
-    UserDao userDao;
+    private UserDao userDao;
 
     @Override
     public User create(User user) {

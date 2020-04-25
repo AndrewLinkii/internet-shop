@@ -22,9 +22,9 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
 
     @Override
     public Optional<ShoppingCart> get(Long id) {
-        return Optional.ofNullable(Storage.shoppingCarts.stream()
+        return Storage.shoppingCarts.stream()
                 .filter(s -> s.getId().equals(id))
-                .findFirst().orElseThrow());
+                .findFirst();
     }
 
     @Override

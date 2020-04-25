@@ -30,10 +30,10 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
-        return "ShoppingCart{"
-                + "id=" + id
-                + ", products=" + products
-                + ", user=" + user
+        return "\nShoppingCart{"
+                + "id = " + id
+                + ", products = " + products
+                + ", user = " + user
                 + '}';
     }
 

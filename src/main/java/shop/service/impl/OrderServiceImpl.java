@@ -9,19 +9,23 @@ import shop.model.Order;
 import shop.model.Product;
 import shop.model.User;
 import shop.service.OrderService;
+import shop.service.ShoppingCartService;
 
 @Service
 public class OrderServiceImpl implements OrderService {
     @Inject
-    OrderDao orderDao;
+    private OrderDao orderDao;
+
+    @Inject
+    private ShoppingCartService shoppingCartService;
 
     @Override
     public Order completeOrder(List<Product> products, User user) {
-        Order order = new Order(products, user);
-        orderDao.create(order);
+        List<Product> copy = List.copyOf(products);
+        Order order = orderDao.create(new Order(copy, user));
+        shoppingCartService.clear(shoppingCartService.getByUserId(user.getId()));
         return order;
     }
-
 
     @Override
     public List<Order> getUserOrders(User user) {

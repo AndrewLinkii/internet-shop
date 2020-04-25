@@ -22,9 +22,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Optional<User> get(Long id) {
-        return Optional.ofNullable(Storage.users.stream()
+        return Storage.users.stream()
                 .filter(u -> u.getId().equals(id))
-                .findFirst().orElseThrow());
+                .findFirst();
     }
 
     @Override

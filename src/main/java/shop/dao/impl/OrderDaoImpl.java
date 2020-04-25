@@ -22,9 +22,9 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public Optional<Order> get(Long id) {
-        return Optional.ofNullable(Storage.orders.stream()
+        return Storage.orders.stream()
                 .filter(o -> o.getId().equals(id))
-                .findFirst().orElseThrow());
+                .findFirst();
     }
 
     @Override

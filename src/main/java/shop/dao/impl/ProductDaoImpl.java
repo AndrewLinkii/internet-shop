@@ -22,10 +22,10 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Optional<Product> get(Long id) {
-        return Optional.ofNullable(Storage.products
+        return Storage.products
                 .stream()
                 .filter(p -> p.getId().equals(id))
-                .findFirst().orElseThrow());
+                .findFirst();
     }
 
     @Override

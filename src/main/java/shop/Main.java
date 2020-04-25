@@ -10,14 +10,11 @@ import shop.service.ShoppingCartService;
 import shop.service.UserService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     private static Injector injector = Injector.getInstance("shop");
 
     public static void main(String[] args) {
-
-        //что то пошло не так , и я не могу залить изменения , єто комент для пуша , удалю до мерджа
         ProductService productService = (ProductService) injector.getInstance(ProductService.class);
         ShoppingCartService shoppingCartService = (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
         UserService userService = (UserService) injector.getInstance(UserService.class);
@@ -46,36 +43,20 @@ public class Main {
         productService.create(cherry);
 
         ShoppingCart bucket1 = new ShoppingCart(new ArrayList<>(), andrew);
-        ShoppingCart bucket2 = new ShoppingCart(new ArrayList<>(), vita);
-        ShoppingCart bucket3 = new ShoppingCart(new ArrayList<>(), anna);
-        ShoppingCart bucket4 = new ShoppingCart(new ArrayList<>(), igor);
 
         shoppingCartService.create(bucket1);
-        shoppingCartService.create(bucket2);
-        shoppingCartService.create(bucket3);
-        shoppingCartService.create(bucket4);
 
-        shoppingCartService.addProduct(bucket1,kiwi);
         shoppingCartService.addProduct(bucket1,kiwi);
         shoppingCartService.addProduct(bucket1,banana);
-        shoppingCartService.addProduct(bucket1, banana);
+        shoppingCartService.addProduct(bucket1, apple);
 
-        shoppingCartService.addProduct(bucket2,apple);
-        shoppingCartService.addProduct(bucket2,apple);
-        shoppingCartService.addProduct(bucket2,banana);
-        shoppingCartService.addProduct(bucket2, banana);
+        shoppingCartService.deleteProduct(shoppingCartService.getByUserId(andrew.getId()),kiwi);
+        System.out.println(shoppingCartService.getAll());
 
 
-        List<Product> products =shoppingCartService.getByUserId(andrew.getId()).getProducts();
-        orderService.completeOrder(products, andrew);
-        shoppingCartService.clear(bucket1);
 
-       shoppingCartService.addProduct(bucket1, orange);
-       shoppingCartService.addProduct(bucket1, apple);
-       shoppingCartService.addProduct(bucket1, cherry);
-
-        orderService.completeOrder(shoppingCartService.getByUserId(andrew.getId()).getProducts(), andrew);
+        orderService.completeOrder(bucket1.getProducts(),andrew);
         System.out.println(orderService.getUserOrders(andrew));
-
+        System.out.println(bucket1);
     }
 }
