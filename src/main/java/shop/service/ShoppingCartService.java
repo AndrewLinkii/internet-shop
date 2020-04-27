@@ -5,7 +5,6 @@ import shop.model.Product;
 import shop.model.ShoppingCart;
 
 public interface ShoppingCartService {
-    ShoppingCart create(ShoppingCart shoppingCart);
 
     ShoppingCart addProduct(ShoppingCart shoppingCart, Product product);
 
@@ -17,5 +16,8 @@ public interface ShoppingCartService {
 
     List<Product> getAllProducts(ShoppingCart shoppingCart);
 
+    ShoppingCart create(ShoppingCart shoppingCart);
+
     List<ShoppingCart> getAll();
+
 }
