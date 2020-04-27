@@ -38,10 +38,10 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{"
-                + "id=" + id
-                + ", products=" + products
-                + ", user=" + user
+        return "\nOrder{"
+                + "id = " + id
+                + ", products = " + products
+                + ", user = " + user
                 + '}';
     }
 }

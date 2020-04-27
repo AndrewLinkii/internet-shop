@@ -1,6 +1,7 @@
 package shop.dao.impl;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import shop.dao.ProductDao;
 import shop.db.Storage;
@@ -11,7 +12,11 @@ import shop.model.Product;
 public class ProductDaoImpl implements ProductDao {
     @Override
     public Product create(Product product) {
-        Storage.add(product);
+        if (product != null) {
+            Storage.add(product);
+        } else {
+            throw new NoSuchElementException("Cant create because Product is null");
+        }
         return product;
     }
 
@@ -31,12 +36,12 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public Product update(Product product) {
         int index = Storage.products.indexOf(product);
-        Storage.products.set(index,product);
+        Storage.products.set(index, product);
         return product;
     }
 
     @Override
     public boolean delete(Long id) {
-       return Storage.products.removeIf(p ->p.getId().equals(id));
+        return Storage.products.removeIf(p -> p.getId().equals(id));
     }
 }

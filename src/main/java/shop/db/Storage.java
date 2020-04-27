@@ -7,17 +7,16 @@ import shop.model.Product;
 import shop.model.ShoppingCart;
 import shop.model.User;
 
-
 public class Storage {
     public static final List<Product> products = new ArrayList<>();
-    public static final List<ShoppingCart> buckets = new ArrayList<>();
+    public static final List<ShoppingCart> shoppingCarts = new ArrayList<>();
     public static final List<User> users = new ArrayList<>();
     public static final List<Order> orders = new ArrayList<>();
 
-    private static Long userId = 0L;
-    private static Long shoppingCartId = 0L;
-    private static Long orderId = 0L;
-    private static Long productId = 0L;
+    public static Long userId = 0L;
+    public static Long shoppingCartId = 0L;
+    public static Long orderId = 0L;
+    public static Long productId = 0L;
 
     public static void add(Product product) {
         productId++;
@@ -28,7 +27,7 @@ public class Storage {
     public static void add(ShoppingCart shoppingCart) {
         shoppingCartId++;
         shoppingCart.setId(shoppingCartId);
-        buckets.add(shoppingCart);
+        shoppingCarts.add(shoppingCart);
     }
 
     public static void add(User user) {
