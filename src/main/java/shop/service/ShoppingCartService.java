@@ -4,8 +4,7 @@ import java.util.List;
 import shop.model.Product;
 import shop.model.ShoppingCart;
 
-public interface ShoppingCartService {
-    ShoppingCart create(ShoppingCart shoppingCart);
+public interface ShoppingCartService extends GenericService<ShoppingCart,Long>{
 
     ShoppingCart addProduct(ShoppingCart shoppingCart, Product product);
 
@@ -17,5 +16,4 @@ public interface ShoppingCartService {
 
     List<Product> getAllProducts(ShoppingCart shoppingCart);
 
-    List<ShoppingCart> getAll();
 }
