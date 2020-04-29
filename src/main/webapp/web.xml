@@ -8,7 +8,6 @@
         <servlet-name>main</servlet-name>
         <servlet-class>shop.controllers.MainPageController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>main</servlet-name>
         <url-pattern>/main</url-pattern>
@@ -18,7 +17,6 @@
         <servlet-name>inject</servlet-name>
         <servlet-class>shop.controllers.InjectTestDataController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>inject</servlet-name>
         <url-pattern>/inject</url-pattern>
@@ -28,7 +26,6 @@
         <servlet-name>registration</servlet-name>
         <servlet-class>shop.controllers.RegistrationController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
         <url-pattern>/registration</url-pattern>
@@ -38,7 +35,6 @@
         <servlet-name>allUsers</servlet-name>
         <url-pattern>/allUsers</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>allUsers</servlet-name>
         <servlet-class>shop.controllers.GetAllUsersController</servlet-class>
@@ -48,7 +44,6 @@
         <servlet-name>deleteUser</servlet-name>
         <url-pattern>/deleteUser</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>deleteUser</servlet-name>
         <servlet-class>shop.controllers.DeleteUserController</servlet-class>
@@ -58,7 +53,6 @@
         <servlet-name>allProducts</servlet-name>
         <url-pattern>/allProducts</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>allProducts</servlet-name>
         <servlet-class>shop.controllers.GetAllProductsController</servlet-class>
@@ -68,7 +62,6 @@
         <servlet-name>addProduct</servlet-name>
         <url-pattern>/addProduct</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>addProduct</servlet-name>
         <servlet-class>shop.controllers.AddProductController</servlet-class>
@@ -78,7 +71,6 @@
         <servlet-name>addProductToShopCart</servlet-name>
         <url-pattern>/addProductToShopCart</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>addProductToShopCart</servlet-name>
         <servlet-class>shop.controllers.AddProductToShoppingCart</servlet-class>
@@ -88,10 +80,9 @@
         <servlet-name>shoppingCart</servlet-name>
         <url-pattern>/shoppingCart</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>shoppingCart</servlet-name>
-        <servlet-class>shop.controllers.ShopCartController</servlet-class>
+        <servlet-class>shop.controllers.GetShopCartController</servlet-class>
     </servlet>
 
 </web-app>
