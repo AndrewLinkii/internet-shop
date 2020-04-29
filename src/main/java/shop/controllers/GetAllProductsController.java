@@ -10,7 +10,7 @@ import shop.lib.Injector;
 import shop.model.Product;
 import shop.service.ProductService;
 
-public class AllProductsController extends HttpServlet {
+public class GetAllProductsController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("shop");
     private final ProductService productService =
             (ProductService) INJECTOR.getInstance(ProductService.class);

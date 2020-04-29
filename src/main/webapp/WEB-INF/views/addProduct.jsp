@@ -5,7 +5,6 @@
 </head>
 <body>
 Let's create a new Product!
-
 <form action="${pageContext.request.contextPath}/addProduct" method="post">
 
     <p>Please fill in this form to create an product.</p>

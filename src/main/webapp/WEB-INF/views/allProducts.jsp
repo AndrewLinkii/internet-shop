@@ -29,11 +29,9 @@
         </tr>
     </c:forEach>
 </table>
-
 <p></p>
 <form action="${pageContext.request.contextPath}/shoppingCart">
     <button type="submit">Go to shopping Cart</button>
 </form>
-
 </body>
 </html>

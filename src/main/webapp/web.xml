@@ -41,7 +41,7 @@
 
     <servlet>
         <servlet-name>allUsers</servlet-name>
-        <servlet-class>shop.controllers.AllUsersController</servlet-class>
+        <servlet-class>shop.controllers.GetAllUsersController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -61,7 +61,7 @@
 
     <servlet>
         <servlet-name>allProducts</servlet-name>
-        <servlet-class>shop.controllers.AllProductsController</servlet-class>
+        <servlet-class>shop.controllers.GetAllProductsController</servlet-class>
     </servlet>
 
     <servlet-mapping>
