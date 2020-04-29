@@ -22,9 +22,10 @@
         <button type="submit">Show Products</button>
     </form>
 
+
     <p></p>
-    <form action="${pageContext.request.contextPath}/addProduct">
-        <button type="submit">Add Product</button>
+    <form action="${pageContext.request.contextPath}/editProducts">
+        <button type="submit">Edit Products</button>
     </form>
 
 </head>

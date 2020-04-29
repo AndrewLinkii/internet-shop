@@ -11,7 +11,7 @@ import shop.model.ShoppingCart;
 import shop.service.ProductService;
 import shop.service.ShoppingCartService;
 
-public class AddProductToShoppingCart extends HttpServlet {
+public class AddProductToShoppingCartController extends HttpServlet {
     private static final Long USER_ID = 1L;
     private static final Injector INJECTOR = Injector.getInstance("shop");
     private final ProductService productService =
