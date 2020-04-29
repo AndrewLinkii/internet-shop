@@ -5,12 +5,84 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>shop.controllers.IndexController</servlet-class>
+        <servlet-name>main</servlet-name>
+        <servlet-class>shop.controllers.MainPageController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>inject</servlet-name>
+        <servlet-class>shop.controllers.InjectTestDataController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>inject</servlet-name>
+        <url-pattern>/inject</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registration</servlet-name>
+        <servlet-class>shop.controllers.RegistrationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>allUsers</servlet-name>
+        <url-pattern>/allUsers</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>allUsers</servlet-name>
+        <servlet-class>shop.controllers.GetAllUsersController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <servlet-name>deleteUser</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteUser</servlet-name>
+        <servlet-class>shop.controllers.DeleteUserController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>allProducts</servlet-name>
+        <url-pattern>/allProducts</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>allProducts</servlet-name>
+        <servlet-class>shop.controllers.GetAllProductsController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>shop.controllers.AddProductController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addProductToShopCart</servlet-name>
+        <url-pattern>/addProductToShopCart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>addProductToShopCart</servlet-name>
+        <servlet-class>shop.controllers.AddProductToShoppingCart</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>shoppingCart</servlet-name>
+        <url-pattern>/shoppingCart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>shoppingCart</servlet-name>
+        <servlet-class>shop.controllers.GetShopCartController</servlet-class>
+    </servlet>
+
 </web-app>
