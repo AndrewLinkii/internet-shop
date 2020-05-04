@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import shop.lib.Injector;
 import shop.model.ShoppingCart;
 import shop.model.User;
@@ -38,6 +40,8 @@ public class RegistrationController extends HttpServlet {
             ShoppingCart shoppingCart = new ShoppingCart(new ArrayList<>(), user);
             userService.create(user);
             shoppingCartService.create(shoppingCart);
+            HttpSession session = req.getSession();
+            session.setAttribute("user_id", user.getId());
             resp.sendRedirect(req.getContextPath() + "/main");
         } else {
             req.setAttribute("msg", "Please repeat same password");

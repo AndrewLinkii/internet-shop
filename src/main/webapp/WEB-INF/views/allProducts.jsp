@@ -3,14 +3,18 @@
 <html>
 <head>
     <title>AllProducts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
 </head>
 <body>
 <h3>Products</h3>
-<table border="1">
+<table border="2">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>
+        <th> </th>
     </tr>
     <c:forEach var="product" items="${products}">
         <tr>
@@ -24,14 +28,15 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/addProductToShopCart?id=${product.id}">buy</a>
+                <a href="${pageContext.request.contextPath}/addProductToShopCart?id=${product.id}"
+                   class="btn btn-secondary btn-sm active" aria-pressed="true">buy</a>
             </td>
         </tr>
     </c:forEach>
 </table>
 <p></p>
 <form action="${pageContext.request.contextPath}/shoppingCart">
-    <button type="submit">Go to shopping Cart</button>
+    <button type="submit" class="btn btn-primary">Go to shopping Cart</button>
 </form>
 </body>
 </html>

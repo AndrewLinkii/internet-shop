@@ -2,11 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
 </head>
 <body>
 <h3>Edit page products</h3>
-<table border="1">
+<table border="2">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -25,16 +27,16 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/deleteProductFromDb?id=${product.id}">delete</a>
+                <a href="${pageContext.request.contextPath}/deleteProductFromDb?id=${product.id}"
+                   class="btn btn-secondary btn-sm active" aria-pressed="true">delete</a>
             </td>
         </tr>
     </c:forEach>
-
-    <form action="${pageContext.request.contextPath}/addProduct">
-        <button type="submit">Add Product</button>
-    </form>
-
 </table>
+<p></p>
+<form action="${pageContext.request.contextPath}/addProduct">
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
 
 </body>
 </html>
