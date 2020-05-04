@@ -11,6 +11,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Edit</th>
     </tr>
     <c:forEach var="product" items="${products}">
         <tr>
