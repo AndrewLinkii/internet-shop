@@ -73,7 +73,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>addProductToShopCart</servlet-name>
-        <servlet-class>shop.controllers.AddProductToShoppingCart</servlet-class>
+        <servlet-class>shop.controllers.AddProductToShoppingCartController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -83,6 +83,69 @@
     <servlet>
         <servlet-name>shoppingCart</servlet-name>
         <servlet-class>shop.controllers.GetShopCartController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteProductFromCart</servlet-name>
+        <url-pattern>/deleteFromCart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteProductFromCart</servlet-name>
+        <servlet-class>shop.controllers.DeleteProductFromShoppingCartController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>completeOrder</servlet-name>
+        <url-pattern>/completeOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>completeOrder</servlet-name>
+        <servlet-class>shop.controllers.CompleteOrderController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>allOrders</servlet-name>
+        <url-pattern>/allOrders</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>allOrders</servlet-name>
+        <servlet-class>shop.controllers.GetAllOrdersController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>order</servlet-name>
+        <url-pattern>/getOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>order</servlet-name>
+        <servlet-class>shop.controllers.GetOrderController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteOrder</servlet-name>
+        <url-pattern>/deleteOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteOrder</servlet-name>
+        <servlet-class>shop.controllers.DeleteOrderController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteProductFromDb</servlet-name>
+        <url-pattern>/deleteProductFromDb</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteProductFromDb</servlet-name>
+        <servlet-class>shop.controllers.DeleteProductController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>editProducts</servlet-name>
+        <url-pattern>/editProducts</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>editProducts</servlet-name>
+        <servlet-class>shop.controllers.EditProductsController</servlet-class>
     </servlet>
 
 </web-app>
