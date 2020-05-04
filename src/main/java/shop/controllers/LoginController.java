@@ -29,12 +29,12 @@ public class LoginController extends HttpServlet {
         String psw = req.getParameter("psw");
 
         try {
-            User user = authenticationService.login(login,psw);
+            User user = authenticationService.login(login, psw);
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
         } catch (AuthenticationException e) {
             req.setAttribute("msg", e.getMessage());
-            req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req,resp);
+            req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
             return;
         }
         resp.sendRedirect(req.getContextPath() + "/main");

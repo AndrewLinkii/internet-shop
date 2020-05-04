@@ -39,7 +39,6 @@ public class RegistrationController extends HttpServlet {
             userService.create(user);
             shoppingCartService.create(shoppingCart);
             resp.sendRedirect(req.getContextPath() + "/main");
-            return;
         } else {
             req.setAttribute("msg", "Please repeat same password");
             req.getRequestDispatcher("WEB-INF/views/registration.jsp").forward(req, resp);
