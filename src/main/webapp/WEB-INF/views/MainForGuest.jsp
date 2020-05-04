@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,12 +6,18 @@
           crossorigin="anonymous">
 </head>
 <body>
-<c:if test="${userId == null}">
-    <jsp:include page="MainForGuest.jsp"/>
-</c:if>
+<h3>Hello guest</h3>
+<p></p>
 
-<c:if test="${userId != null}">
-    <jsp:include page="MainForUser.jsp"/>
-</c:if>
+<p></p>
+<form action="${pageContext.request.contextPath}/registration">
+    <button type="submit" class="btn btn-primary">Registration</button>
+</form>
+
+<p></p>
+<form action="${pageContext.request.contextPath}/login">
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
 </body>
 </html>

@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
 </head>
 <body>
-Let's create a new User!
 
 <form action="${pageContext.request.contextPath}/registration" method="post">
     <h1>Registration</h1>
@@ -23,7 +25,7 @@ Let's create a new User!
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
     <hr>
     <h3 style="color: red"> ${msg}</h3>
-    <button type="submit">Register</button>
+    <button type="submit" class="btn btn-primary">Register</button>
 </form>
 </body>
 </html>

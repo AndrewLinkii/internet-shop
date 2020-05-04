@@ -12,7 +12,7 @@ import shop.service.ShoppingCartService;
 import shop.service.UserService;
 
 public class CompleteOrderController extends HttpServlet {
-    private static final Long USER_ID = 1L;
+    private static final String USER_ID = "user_id";
     private static final Injector INJECTOR = Injector.getInstance("shop");
     private final UserService userService =
             (UserService) INJECTOR.getInstance(UserService.class);
@@ -24,8 +24,15 @@ public class CompleteOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        ShoppingCart shoppingCart = shoppingCartService.getByUserId(USER_ID);
-        orderService.completeOrder(shoppingCart.getProducts(), userService.get(USER_ID));
+        Long userId = (Long) req.getSession().getAttribute(USER_ID);
+        ShoppingCart shoppingCart = shoppingCartService.getByUserId(userId);
+        if (shoppingCart.getProducts().isEmpty()) {
+            String msg = "Sorry but you shopping cart is empty";
+            req.setAttribute("msg", msg);
+            req.getRequestDispatcher("WEB-INF/views/shoppingCart.jsp").forward(req, resp);
+            return;
+        }
+        orderService.completeOrder(shoppingCart.getProducts(), userService.get(userId));
         resp.sendRedirect(req.getContextPath() + "/allOrders");
     }
 }
