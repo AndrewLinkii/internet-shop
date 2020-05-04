@@ -38,9 +38,9 @@ public class Order {
         this.user = user;
     }
 
-    public double getTotalPrice(){
+    public double getTotalPrice() {
         return products.stream()
-                .mapToDouble(x ->  x.getPrice())
+                .mapToDouble(Product::getPrice)
                 .sum();
     }
 

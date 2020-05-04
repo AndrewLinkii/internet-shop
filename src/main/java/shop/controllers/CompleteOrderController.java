@@ -26,10 +26,10 @@ public class CompleteOrderController extends HttpServlet {
             throws ServletException, IOException {
         Long userId = (Long) req.getSession().getAttribute(USER_ID);
         ShoppingCart shoppingCart = shoppingCartService.getByUserId(userId);
-        if(shoppingCart.getProducts().isEmpty()){
-            String msg  = "Sorry but you shopping cart is empty";
+        if (shoppingCart.getProducts().isEmpty()) {
+            String msg = "Sorry but you shopping cart is empty";
             req.setAttribute("msg", msg);
-            req.getRequestDispatcher("WEB-INF/views/shoppingCart.jsp").forward(req,resp);
+            req.getRequestDispatcher("WEB-INF/views/shoppingCart.jsp").forward(req, resp);
             return;
         }
         orderService.completeOrder(shoppingCart.getProducts(), userService.get(userId));

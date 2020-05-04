@@ -23,7 +23,7 @@ public class MainPageController extends HttpServlet {
             String login = userService.get(userId).getLogin();
             req.setAttribute("name", login);
         }
-            req.setAttribute("userId", userId);
+        req.setAttribute("userId", userId);
         req.getRequestDispatcher("WEB-INF/views/mainPage.jsp").forward(req, resp);
 
     }
