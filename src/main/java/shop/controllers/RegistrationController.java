@@ -2,12 +2,14 @@ package shop.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import shop.lib.Injector;
+import shop.model.Role;
 import shop.model.ShoppingCart;
 import shop.model.User;
 import shop.service.ShoppingCartService;
@@ -36,6 +38,7 @@ public class RegistrationController extends HttpServlet {
 
         if (password.equals(pswRe)) {
             User user = new User(name, login, password);
+            user.setRoles(Set.of(Role.of("USER")));
             ShoppingCart shoppingCart = new ShoppingCart(new ArrayList<>(), user);
             userService.create(user);
             shoppingCartService.create(shoppingCart);

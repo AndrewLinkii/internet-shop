@@ -31,5 +31,10 @@
     <button type="submit" class="btn btn-primary">All my orders</button>
 </form>
 
+<p></p>
+<form action="${pageContext.request.contextPath}/logout">
+    <button type="submit" class="btn btn-primary">Logout</button>
+</form>
+
 </body>
 </html>
