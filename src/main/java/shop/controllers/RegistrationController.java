@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.log4j.Logger;
 import shop.lib.Injector;
 import shop.model.Role;
 import shop.model.ShoppingCart;
@@ -18,7 +17,6 @@ import shop.service.UserService;
 
 public class RegistrationController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("shop");
-    private static final Logger LOGGER = Logger.getLogger(RegistrationController.class);
     private final UserService userService =
             (UserService) INJECTOR.getInstance(UserService.class);
     private final ShoppingCartService shoppingCartService =
@@ -46,7 +44,6 @@ public class RegistrationController extends HttpServlet {
             shoppingCartService.create(shoppingCart);
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
-            LOGGER.info("User with ID " + user.getId() + " registrated ");
             resp.sendRedirect(req.getContextPath() + "/main");
         } else {
             req.setAttribute("msg", "Please repeat same password");

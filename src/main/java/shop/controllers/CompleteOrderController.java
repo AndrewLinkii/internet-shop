@@ -33,6 +33,6 @@ public class CompleteOrderController extends HttpServlet {
             return;
         }
         orderService.completeOrder(shoppingCart.getProducts(), userService.get(userId));
-        resp.sendRedirect(req.getContextPath() + "/allOrders");
+        resp.sendRedirect(req.getContextPath() + "/allUserOrders");
     }
 }

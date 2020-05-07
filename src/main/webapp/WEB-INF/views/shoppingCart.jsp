@@ -8,6 +8,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<center>
 <h3>ShoppingCart</h3>
 <table border="1">
     <tr>
@@ -39,5 +40,6 @@
 <form action="${pageContext.request.contextPath}/completeOrder">
     <button type="submit" class="btn btn-primary">Complete Order</button>
 </form>
+    </center>
 </body>
 </html>

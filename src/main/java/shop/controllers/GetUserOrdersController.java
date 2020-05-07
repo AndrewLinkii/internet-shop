@@ -9,18 +9,22 @@ import javax.servlet.http.HttpServletResponse;
 import shop.lib.Injector;
 import shop.model.Order;
 import shop.service.OrderService;
+import shop.service.UserService;
 
-public class GetAllOrdersController extends HttpServlet {
+public class GetUserOrdersController extends HttpServlet {
+    private static final String USER_ID = "user_id";
     private static final Injector INJECTOR = Injector.getInstance("shop");
     private final OrderService orderService =
             (OrderService) INJECTOR.getInstance(OrderService.class);
+    private final UserService userService =
+            (UserService) INJECTOR.getInstance(UserService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Order> all = orderService.getAll();
-        req.setAttribute("orders", all);
-        req.getRequestDispatcher("WEB-INF/views/allOrders.jsp").forward(req, resp);
-
+        Long userId = (Long) req.getSession().getAttribute(USER_ID);
+        List<Order> orders = orderService.getUserOrders(userService.get(userId));
+        req.setAttribute("orders", orders);
+        req.getRequestDispatcher("WEB-INF/views/allUserOrders.jsp").forward(req, resp);
     }
 }

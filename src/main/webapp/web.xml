@@ -95,12 +95,12 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>allOrders</servlet-name>
-        <url-pattern>/allOrders</url-pattern>
+        <servlet-name>allUserOrders</servlet-name>
+        <url-pattern>/allUserOrders</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>allOrders</servlet-name>
-        <servlet-class>shop.controllers.GetAllOrdersController</servlet-class>
+        <servlet-name>allUserOrders</servlet-name>
+        <servlet-class>shop.controllers.GetUserOrdersController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -110,6 +110,15 @@
     <servlet>
         <servlet-name>order</servlet-name>
         <servlet-class>shop.controllers.GetOrderController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>allOrders</servlet-name>
+        <url-pattern>/allOrders</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>allOrders</servlet-name>
+        <servlet-class>shop.controllers.GetAllOrdersController</servlet-class>
     </servlet>
 
     <servlet-mapping>

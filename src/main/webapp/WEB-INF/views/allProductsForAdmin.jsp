@@ -7,6 +7,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<center>
 <h3>Edit page products</h3>
 <table border="2">
     <tr>
@@ -37,6 +38,6 @@
 <form action="${pageContext.request.contextPath}/addProduct">
     <button type="submit" class="btn btn-primary">Add Product</button>
 </form>
-
+</center>
 </body>
 </html>

@@ -6,6 +6,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<center>
 <form action="${pageContext.request.contextPath}/addProduct" method="post">
 
     <h3>Please fill in this form to create an product.</h3>
@@ -18,5 +19,6 @@
     <hr>
     <button type="submit" class="btn btn-primary">Add</button>
 </form>
+</center>
 </body>
 </html>
