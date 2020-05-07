@@ -1,13 +1,11 @@
 package shop.controllers;
 
 import java.io.IOException;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import shop.lib.Injector;
-import shop.model.Role;
 import shop.service.UserService;
 
 public class MainPageController extends HttpServlet {

@@ -1,15 +1,14 @@
 package shop.controllers;
 
-import shop.lib.Injector;
-import shop.model.Order;
-import shop.service.OrderService;
-
+import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
+import shop.lib.Injector;
+import shop.model.Order;
+import shop.service.OrderService;
 
 public class GetAllOrdersController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("shop");
