@@ -14,15 +14,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>inject</servlet-name>
-        <servlet-class>shop.controllers.InjectTestDataController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>inject</servlet-name>
-        <url-pattern>/inject</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>registration</servlet-name>
         <servlet-class>shop.controllers.RegistrationController</servlet-class>
     </servlet>
@@ -156,6 +147,16 @@
         <servlet-name>editProducts</servlet-name>
         <servlet-class>shop.controllers.EditProductsController</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>shop.controllers.LogoutController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     
     <filter>
         <filter-name>authenticationFilter</filter-name>
@@ -165,5 +166,15 @@
         <filter-name>authenticationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>authorizationFilter</filter-name>
+        <filter-class>shop.web.filters.AuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authorizationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 
 </web-app>
