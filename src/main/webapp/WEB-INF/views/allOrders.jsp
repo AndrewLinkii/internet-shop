@@ -8,7 +8,8 @@
           crossorigin="anonymous">
 </head>
 <body>
-<h3>All Orders</h3>
+<center>
+    <h3>All Orders</h3>
 <table border="2">
     <tr>
         <th>Name</th>
@@ -19,11 +20,11 @@
     <c:forEach var="order" items="${orders}">
     <tr>
         <td>
-            Order : <c:out value="${order.id}"/>
+            Order : <c:out value="${order.getUser().getLogin()}"/>
         </td>
 
         <td>
-             <c:out value="${order.totalPrice}"/>$
+            <c:out value="${order.totalPrice}"/>$
         </td>
 
         <td>
@@ -36,5 +37,6 @@
         </td>
     </tr>
     </c:forEach>
+</center>
 </body>
 </html>

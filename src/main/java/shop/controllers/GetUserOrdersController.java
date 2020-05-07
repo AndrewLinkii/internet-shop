@@ -1,18 +1,21 @@
 package shop.controllers;
 
 import java.io.IOException;
-import java.util.Set;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import shop.lib.Injector;
-import shop.model.Role;
+import shop.model.Order;
+import shop.service.OrderService;
 import shop.service.UserService;
 
-public class MainPageController extends HttpServlet {
+public class GetUserOrdersController extends HttpServlet {
     private static final String USER_ID = "user_id";
     private static final Injector INJECTOR = Injector.getInstance("shop");
+    private final OrderService orderService =
+            (OrderService) INJECTOR.getInstance(OrderService.class);
     private final UserService userService =
             (UserService) INJECTOR.getInstance(UserService.class);
 
@@ -20,13 +23,8 @@ public class MainPageController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Long userId = (Long) req.getSession().getAttribute(USER_ID);
-
-        if (userId != null) {
-            String login = userService.get(userId).getLogin();
-            req.setAttribute("name", login);
-        }
-        req.setAttribute("userId", userId);
-        req.getRequestDispatcher("WEB-INF/views/mainPage.jsp").forward(req, resp);
-
+        List<Order> orders = orderService.getUserOrders(userService.get(userId));
+        req.setAttribute("orders", orders);
+        req.getRequestDispatcher("WEB-INF/views/allUserOrders.jsp").forward(req, resp);
     }
 }

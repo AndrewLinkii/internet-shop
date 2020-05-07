@@ -12,7 +12,9 @@
 </c:if>
 
 <c:if test="${userId != null}">
-    <jsp:include page="MainForUser.jsp"/>
+    <jsp:include page="mainUser.jsp"/>
 </c:if>
+
+
 </body>
 </html>

@@ -7,6 +7,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<center>
 <form action="${pageContext.request.contextPath}/login" method="post">
     <h1>Login</h1>
     <p>Please fill in this form to enter.</p>
@@ -21,12 +22,12 @@
 
     <hr>
     <h3 style="color: red"> ${msg}</h3>
-    <button type="submit">Login</button>
+    <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/registration">
-    <button type="submit">Registration</button>
+    <button type="submit" class="btn btn-primary" >Registration</button>
 </form>
-
+</center>
 </body>
 </html>

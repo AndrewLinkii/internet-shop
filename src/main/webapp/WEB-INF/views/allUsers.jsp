@@ -8,6 +8,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<center>
 <h3>All Users</h3>
 <table border="2">
     <tr>
@@ -34,5 +35,6 @@
         </tr>
     </c:forEach>
 </table>
+</center>
 </body>
 </html>
