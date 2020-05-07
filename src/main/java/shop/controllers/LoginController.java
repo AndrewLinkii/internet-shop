@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import shop.exeption.AuthenticationException;
 import shop.lib.Injector;
 import shop.model.User;
@@ -13,6 +14,7 @@ import shop.security.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("shop");
+    private static final Logger LOGGER = Logger.getLogger(LoginController.class);
     private final AuthenticationService authenticationService =
             (AuthenticationService) INJECTOR.getInstance(AuthenticationService.class);
 
@@ -32,6 +34,7 @@ public class LoginController extends HttpServlet {
             User user = authenticationService.login(login, psw);
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
+            LOGGER.info("User with ID " + user.getId() + " login in ");
         } catch (AuthenticationException e) {
             req.setAttribute("msg", e.getMessage());
             req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
