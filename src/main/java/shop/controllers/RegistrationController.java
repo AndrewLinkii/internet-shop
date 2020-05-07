@@ -14,9 +14,11 @@ import shop.model.ShoppingCart;
 import shop.model.User;
 import shop.service.ShoppingCartService;
 import shop.service.UserService;
+import org.apache.log4j.Logger;
 
 public class RegistrationController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("shop");
+    private static final Logger LOGGER = Logger.getLogger(RegistrationController.class);
     private final UserService userService =
             (UserService) INJECTOR.getInstance(UserService.class);
     private final ShoppingCartService shoppingCartService =
@@ -44,6 +46,7 @@ public class RegistrationController extends HttpServlet {
             shoppingCartService.create(shoppingCart);
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
+            LOGGER.info("User with ID " + user.getId() + " registrated ");
             resp.sendRedirect(req.getContextPath() + "/main");
         } else {
             req.setAttribute("msg", "Please repeat same password");
