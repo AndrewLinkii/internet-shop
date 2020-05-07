@@ -8,7 +8,7 @@
 </head>
 <body>
 <c:if test="${userId == null}">
-    <jsp:include page="MainForGuest.jsp"/>
+    <jsp:include page="mainGuest.jsp"/>
 </c:if>
 
 <c:if test="${userId != null}">
