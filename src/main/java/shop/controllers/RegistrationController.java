@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import shop.lib.Injector;
 import shop.model.Role;
 import shop.model.ShoppingCart;
 import shop.model.User;
 import shop.service.ShoppingCartService;
 import shop.service.UserService;
-import org.apache.log4j.Logger;
 
 public class RegistrationController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("shop");
