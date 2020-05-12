@@ -1,11 +1,14 @@
 package shop.util;
 
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
+    private static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,8 +23,10 @@ public class ConnectionUtil {
         dbProperties.put("password", "123123");
         String url = "jdbc:mysql://localhost:3306/internet-shop?serverTimezone=UTC";
         try {
+            LOGGER.info("Connection to DB done successes ");
             return DriverManager.getConnection(url, dbProperties);
         } catch (SQLException e) {
+            LOGGER.info("Connection to DB failed... ");
             throw new RuntimeException("Can't establish the connection to DB", e);
         }
     }
