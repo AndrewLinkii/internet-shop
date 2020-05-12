@@ -48,7 +48,7 @@ public class ProductJdbcImpl implements ProductDao {
             }
             return Optional.empty();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DataProcessingException("Can`t get product whit id " + id, e);
         }
     }
 
