@@ -1,14 +1,14 @@
 package shop.util;
 
-import org.apache.log4j.Logger;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import org.apache.log4j.Logger;
 
 public class ConnectionUtil {
     private static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
+
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
