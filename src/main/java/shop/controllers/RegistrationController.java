@@ -38,7 +38,7 @@ public class RegistrationController extends HttpServlet {
 
         if (password.equals(pswRe)) {
             User user = new User(name, login, password);
-            user.setRoles(Set.of(Role.of("USER")));
+            user.setRoles(Set.of(Role.of("ADMIN")));
             ShoppingCart shoppingCart = new ShoppingCart(new ArrayList<>(), user);
             userService.create(user);
             shoppingCartService.create(shoppingCart);
