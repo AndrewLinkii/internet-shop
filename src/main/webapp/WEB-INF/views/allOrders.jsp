@@ -20,7 +20,7 @@
     <c:forEach var="order" items="${orders}">
     <tr>
         <td>
-            Order : <c:out value="${order.getUser().getLogin()}"/>
+            Order : <c:out value="${order.id}"/>
         </td>
 
         <td>

@@ -1,15 +1,21 @@
 package shop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
     private Long id;
     private List<Product> products;
-    private User user;
+    private Long userId;
 
-    public ShoppingCart(List<Product> products, User user) {
+    public ShoppingCart(Long userId) {
+        this.userId = userId;
+        this.products = new ArrayList<>();
+    }
+
+    public ShoppingCart(List<Product> products, Long userId) {
         this.products = products;
-        this.user = user;
+        this.userId = userId;
     }
 
     public Long getId() {
@@ -20,12 +26,12 @@ public class ShoppingCart {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -33,7 +39,7 @@ public class ShoppingCart {
         return "\nShoppingCart{"
                 + "id = " + id
                 + ", products = " + products
-                + ", user = " + user
+                + ", userId = " + userId
                 + '}';
     }
 

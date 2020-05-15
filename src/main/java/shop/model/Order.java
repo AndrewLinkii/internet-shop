@@ -1,17 +1,23 @@
 package shop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     private Long id;
     private List<Product> products;
-    private User user;
+    private Long userId;
     private Double totalPrice;
 
-    public Order(List<Product> products, User user) {
+    public Order(List<Product> products, Long userId) {
         this.products = products;
-        this.user = user;
+        this.userId = userId;
         totalPrice = getTotalPrice();
+    }
+
+    public Order(Long userId) {
+        this.userId = userId;
+        this.products = new ArrayList<>();
     }
 
     public Long getId() {
@@ -30,12 +36,12 @@ public class Order {
         this.products = products;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public double getTotalPrice() {
@@ -49,7 +55,7 @@ public class Order {
         return "\nOrder{"
                 + "id = " + id
                 + ", products = " + products
-                + ", user = " + user
+                + ", user = " + userId
                 + '}';
     }
 }

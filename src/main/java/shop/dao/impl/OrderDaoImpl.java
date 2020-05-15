@@ -5,10 +5,8 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import shop.dao.OrderDao;
 import shop.db.Storage;
-import shop.lib.Dao;
 import shop.model.Order;
 
-@Dao
 public class OrderDaoImpl implements OrderDao {
     @Override
     public Order create(Order order) {

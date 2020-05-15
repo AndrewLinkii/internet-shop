@@ -1,7 +1,6 @@
 package shop.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,10 +37,9 @@ public class RegistrationController extends HttpServlet {
 
         if (password.equals(pswRe)) {
             User user = new User(name, login, password);
-            user.setRoles(Set.of(Role.of("ADMIN")));
-            ShoppingCart shoppingCart = new ShoppingCart(new ArrayList<>(), user);
+            user.setRoles(Set.of(Role.of("ADMIN"),Role.of("USER")));
             userService.create(user);
-            shoppingCartService.create(shoppingCart);
+            shoppingCartService.create(new ShoppingCart(user.getId()));
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
             resp.sendRedirect(req.getContextPath() + "/main");
