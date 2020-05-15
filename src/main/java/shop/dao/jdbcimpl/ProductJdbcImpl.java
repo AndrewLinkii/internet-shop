@@ -19,8 +19,8 @@ public class ProductJdbcImpl implements ProductDao {
 
     @Override
     public Product create(Product product) {
-        String query = "INSERT INTO products(name, price) VALUES (?, ?);";
         try (Connection connection = ConnectionUtil.getConnection()) {
+            String query = "INSERT INTO products(name, price) VALUES (?, ?);";
             PreparedStatement statement = connection.prepareStatement(query,
                     Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, product.getName());
@@ -54,8 +54,8 @@ public class ProductJdbcImpl implements ProductDao {
 
     @Override
     public Product update(Product product) {
-        String query = "UPDATE products SET name = ?, price = ? WHERE product_id = ?";
         try (Connection connection = ConnectionUtil.getConnection()) {
+            String query = "UPDATE products SET name = ?, price = ? WHERE product_id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, product.getName());
             statement.setDouble(2, product.getPrice());

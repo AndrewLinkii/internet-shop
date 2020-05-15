@@ -1,7 +1,6 @@
 package shop.service.impl;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import shop.dao.OrderDao;
 import shop.lib.Inject;
 import shop.lib.Service;
@@ -22,16 +21,15 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order completeOrder(List<Product> products, User user) {
         List<Product> copy = List.copyOf(products);
-        Order order = orderDao.create(new Order(copy, user));
+        Order order = orderDao.create(new Order(copy, user.getId()));
+        orderDao.update(order);
         shoppingCartService.clear(shoppingCartService.getByUserId(user.getId()));
         return order;
     }
 
     @Override
     public List<Order> getUserOrders(User user) {
-        return orderDao.getAll().stream()
-                .filter(o -> o.getUser().getId().equals(user.getId()))
-                .collect(Collectors.toList());
+        return orderDao.getAll();
     }
 
     @Override

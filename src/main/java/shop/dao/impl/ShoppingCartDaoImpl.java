@@ -5,10 +5,8 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import shop.dao.ShoppingCartDao;
 import shop.db.Storage;
-import shop.lib.Dao;
 import shop.model.ShoppingCart;
 
-@Dao
 public class ShoppingCartDaoImpl implements ShoppingCartDao {
     @Override
     public ShoppingCart create(ShoppingCart shoppingCart) {
