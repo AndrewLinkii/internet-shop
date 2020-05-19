@@ -1,6 +1,8 @@
 package shop.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import shop.dao.OrderDao;
 import shop.lib.Inject;
 import shop.lib.Service;
@@ -28,8 +30,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getUserOrders(User user) {
-        return orderDao.getAll();
+    public List<Order> getUserOrders(Long userId) {
+        return orderDao.getAll().stream().filter(x -> x.getUserId().equals(userId)).collect(Collectors.toList());
     }
 
     @Override

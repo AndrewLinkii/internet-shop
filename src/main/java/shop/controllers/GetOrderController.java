@@ -21,6 +21,8 @@ public class GetOrderController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Order order = orderService.get(Long.valueOf(req.getParameter("id")));
+        String login = userService.get(order.getUserId()).getLogin();
+        req.setAttribute("login", login);
         req.setAttribute("products", order.getProducts());
         req.getRequestDispatcher("WEB-INF/views/order.jsp").forward(req, resp);
     }

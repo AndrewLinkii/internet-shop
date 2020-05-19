@@ -6,29 +6,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
+    <style>
+        body {
+            background: url("https://cdn.pixabay.com/photo/2014/08/25/22/55/hand-427521_960_720.png") no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
 <center>
-<h3>Order</h3>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-    </tr>
-    <c:forEach var="product" items="${products}">
-    <tr>
-        <td>
-            <c:out value="${product.id}"/>
-        </td>
-        <td>
-            <c:out value="${product.name}"/>
-        </td>
-        <td>
-            <c:out value="${product.price}"/>
-        </td>
-    </tr>
-    </c:forEach>
+    <h3>Order ${login}</h3>
+    <table border="2">
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        <c:forEach var="product" items="${products}">
+            <tr>
+                <td>
+                    <c:out value="${product.id}"/>
+                </td>
+                <td>
+                    <c:out value="${product.name}"/>
+                </td>
+                <td>
+                    <c:out value="${product.price}"/>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <p></p>
+    <form action="${pageContext.request.contextPath}/main">
+        <button type="submit" class="btn btn-primary">Main</button>
+    </form>
 </center>
 </body>
 </html>
