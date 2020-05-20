@@ -5,6 +5,7 @@ import shop.lib.Inject;
 import shop.lib.Service;
 import shop.model.User;
 import shop.service.UserService;
+import shop.util.HashUtil;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -15,7 +16,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public User login(String login, String password) throws AuthenticationException {
         User user = userService.findByLogin(login)
                 .orElseThrow(() -> new AuthenticationException("Incorrect login or password"));
-        if (user.getPassword().equals(password)) {
+        if (HashUtil.hashPassword(password, user.getSalt()).equals(user.getPassword())) {
             return user;
         }
         throw new AuthenticationException("Incorrect login or password");
