@@ -18,6 +18,7 @@ CREATE TABLE users
     login    VARCHAR(256) NOT NULL,
     name     VARCHAR(256) NOT NULL,
     password VARCHAR(256) NOT NULL,
+    salt     VARBINARY(300) NOT NULL,
     PRIMARY KEY (user_id)
 );
 
