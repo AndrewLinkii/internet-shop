@@ -82,8 +82,8 @@ public class UserJdbcImp implements UserDao {
     @Override
     public User update(User user) {
         try (Connection connection = ConnectionUtil.getConnection()) {
-            String query =
-                    "UPDATE users SET login = ?, name = ?, password = ?, salt = ? WHERE user_id = ? ";
+            String query = "UPDATE users SET login = ?, name = ?, password = ?, salt = ? "
+                    + "WHERE user_id = ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user.getLogin());
             preparedStatement.setString(2, user.getName());
