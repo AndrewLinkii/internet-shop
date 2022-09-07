@@ -7,6 +7,9 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 public class ConnectionUtil {
+    private static final String USER = "***";
+    private static final String PASSWORD = "***";
+    private static final String URL =  "***";
     private static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
 
     static {
@@ -19,11 +22,10 @@ public class ConnectionUtil {
 
     public static Connection getConnection() {
         Properties dbProperties = new Properties();
-        dbProperties.put("user", "root");
-        dbProperties.put("password", "123123");
-        String url = "jdbc:mysql://localhost:3306/internet-shop?useSSL = FALSE&serverTimezone=UTC";
+        dbProperties.put("user", USER);
+        dbProperties.put("password", PASSWORD);
         try {
-            Connection connection = DriverManager.getConnection(url, dbProperties);
+            Connection connection = DriverManager.getConnection(URL, dbProperties);
             LOGGER.info("Connection to DB done successes ");
             return connection;
         } catch (SQLException e) {
